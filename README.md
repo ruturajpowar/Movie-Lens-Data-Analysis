@@ -60,5 +60,71 @@ hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSH
 
  
  
+<b>Top twenty rated movies (Condition: The movie should be rated/viewed by at least 40
+users)</b>
+<p>
+(code is in src/main/java/com/cdac/movielens/MostViewed package)
+ </p>
  
+ 1.For this analysis I have written two map reduce jobs.
+ 2.First map-reduce job output will be <b>movieId</b> and their respective <b>average Rating count</b>
+   in the reducer check has been applied to check weither movieId is rated by more than 40 users.And only when tis condition    satisfies output is written to hdfs.
+ 3.Second map-reduce job output will be top k (k is configurable) viewed <b>movie name</b> with their <b>avg rating count.      </b>
+  <p>
+ <b>Here one custom sort class is provided to job (SortDoubleComparator) in order to sort avg rating in descending order so that we can easily pick up top k rated movies</b>
+ </p>
+ 4.Output of first map-reduce job is given as input to second map-reduce job. Also movies.dat file is provided to secon job         reducer through distributed cache.
+ 5. One map is constructed in the setup() method of reducer to get movie name corrosponding to movie id.
  
+ #Command to run this task-->
+<p>
+<code>
+hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSHOT.jar com.cdac.movielens.MostRated.Driver -Dtopk=25  /movielens/ratings.dat /movielens/rating/output/mostrated /movielens/rating/output/toprated
+ </code>
+ </p>
+ #Output of first mapreduce job(Command-  hadoop fs -head /movielens/rating/output/mostrated/part-r-00000)
+ <code>
+<p>movieId avgRating</p>
+ <p>1	4.146846413095811</p>
+ <p>10	3.5405405405405403</p>
+ <p>100	3.0625</p>
+ <p>1003	2.9421487603305785</p>
+ <p>1004	2.6633663366336635</p>
+ <p>1005	2.3732394366197185</p>
+ <p>1006	3.08974358974359</p>
+ <p>1007	2.978448275862069</p>
+ <p>1008	3.329896907216495</p>
+ <p>1009	3.185567010309278</p>
+ <p>101	3.869565217391304</p>
+ <p>1010	3.268595041322314</p>
+ <p>1011	2.725925925925926</p>
+ <p>1012	3.7043189368770766</p>
+</code>
+
+
+#Output of second map-reduce job(Command- hadoop fs -head /movielens/rating/output/toprated/part-r-00000)
+<code>
+<P>Movie-Name Avg-Rating</p>
+<P>Sanjuro (1962)	4.608695652173913</p>
+<P>Seven Samurai (The Magnificent Seven) (Shichinin no samurai) (1954)	4.560509554140127</p>
+<P>Shawshank Redemption, The (1994)	4.554557700942973</p>
+<P>Godfather, The (1972)	4.524966261808367</p>
+<P>Close Shave, A (1995)	4.52054794520548</p>
+<P>Usual Suspects, The (1995)	4.517106001121705</p>
+<P>Schindler's List (1993)	4.510416666666667</p>
+<P>Wrong Trousers, The (1993)	4.507936507936508</p>
+<P>Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)	4.491489361702127</p>
+<P>Raiders of the Lost Ark (1981)	4.477724741447892</p>
+<P>Rear Window (1954)	4.476190476190476</p>
+<P>Paths of Glory (1957)	4.473913043478261</p>
+<P>Star Wars: Episode IV - A New Hope (1977)	4.453694416583082</p>
+<P>Third Man, The (1949)	4.452083333333333</p>
+<P>Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1963)	4.4498902706656915</p>
+<P>Wallace & Gromit: The Best of Aardman Animation (1996)	4.426940639269406</p>
+<P>To Kill a Mockingbird (1962)	4.</p>
+<P>Double Indemnity (1944)	4.415607985480944</p>
+<P>Casablanca (1942)	4.412822049131217</p>
+<P>World of Apu, The (Apur Sansar) (1959)	4.410714285714286</p>
+</code>
+
+
