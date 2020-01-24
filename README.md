@@ -26,6 +26,7 @@ hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSH
  </p>
  #Output of first mapreduce job(Command-  hadoop fs -head /movielens/rating/output/mostviewed/part-r-00000)
 <code>
+ <p>movieId viewCount</p>
 <p>1	2077 </p>
 <p>10	888 </p>
 <p>100	128 </p>
@@ -44,7 +45,8 @@ hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSH
 
 #Output of second map-reduce job(Command- hadoop fs -head /movielens/rating/output/topviewed/part-r-00000)
 <code>
- <p>American Beauty (1999)	3428</p>
+<P>Movie Name View Count</p>
+<p>American Beauty (1999)	3428</p>
 <p>Star Wars: Episode IV - A New Hope (1977)	2991</p>
 <p>Star Wars: Episode V - The Empire Strikes Back (1980)	2990</p>
 <p>Star Wars: Episode VI - Return of the Jedi (1983)	2883</p>
