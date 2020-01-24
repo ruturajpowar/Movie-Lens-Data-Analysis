@@ -13,8 +13,9 @@ The objective of the project is to analyze movies dataset and solve below mentio
  5. One map is constructed in the setup() method of reducer to get movie name corrosponding to movie id.
 
 #Command to run this task-->
- hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSHOT.jar com.cdac.movielens.MostViewed.Driver -    Dtopk=10  /movielens/ratings.dat /movielens/rating/output/mostviewed /movielens/rating/output/topviewed
- 
+<code>
+hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSHOT.jar com.cdac.movielens.MostViewed.Driver -    Dtopk=10  /movielens/ratings.dat /movielens/rating/output/mostviewed /movielens/rating/output/topviewed
+ </code>
  #Output of first mapreduce job(Command-  hadoop fs -head /movielens/rating/output/mostviewed/part-r-00000)
 <code>
 <p>1	2077 </p>
