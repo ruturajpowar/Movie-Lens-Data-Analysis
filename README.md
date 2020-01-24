@@ -1,2 +1,51 @@
 # Movie-Lens-Data-Analysis
 The objective of the project is to analyze movies dataset and solve below mentioned KPIs. The dataset contains following files
+
+
+|.Top ten most viewed movies with their movies Name (Ascending or Descending order)
+(code is in src/main/java/com/cdac/movielens/MostViewed package)
+
+ 1.For this analysis I have written two map reduce jobs.
+ 2.First map-reduce job output will be movies and their respective view count
+ 
+ 3.Second map-reduce job output will be top k (k is configurable) viewed movie name with their view count.
+ 4.Output of first map-reduce job is given as input to second map-reduce job. Also movies.dat file is provided to secon job         reducer through distributed cache.
+ 5. One map is constructed in the setup() method of reducer to get movie name corrosponding to movie id.
+
+#Command to run this task-->
+ hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSHOT.jar com.cdac.movielens.MostViewed.Driver -    Dtopk=10  /movielens/ratings.dat /movielens/rating/output/mostviewed /movielens/rating/output/topviewed
+ 
+ #Output of first mapreduce job(Command-  hadoop fs -head /movielens/rating/output/mostviewed/part-r-00000)
+
+1	2077
+10	888
+100	128
+1000	20
+1002	8
+1003	121
+1004	101
+1005	142
+1006	78
+1007	232
+1008	97
+1009	291
+101	253
+1010	242
+
+
+#Output of second map-reduce job(Command- hadoop fs -head /movielens/rating/output/topviewed/part-r-00000)
+American Beauty (1999)	3428
+Star Wars: Episode IV - A New Hope (1977)	2991
+Star Wars: Episode V - The Empire Strikes Back (1980)	2990
+Star Wars: Episode VI - Return of the Jedi (1983)	2883
+Jurassic Park (1993)	2672
+Saving Private Ryan (1998)	2653
+Terminator 2: Judgment Day (1991)	2649
+Matrix, The (1999)	2590
+Back to the Future (1985)	2583
+Silence of the Lambs, The (1991)	2578
+
+ 
+ 
+ 
+ 
