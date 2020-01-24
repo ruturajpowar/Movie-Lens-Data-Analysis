@@ -2,16 +2,11 @@
 The objective of the project is to analyze movies dataset and solve below mentioned KPIs. The dataset contains following files
 
 <h3>Prerequisites</h3>
-<pre>
-<code>
-<p>
-hadoop-3.0.0
-</p>
-<p>
-java-8
-</p>
-</code>
-</pre>
+<ul>
+ <li>hadoop-3.0.0</li>
+<li>java-8</li>
+</ul>
+
 
 <b>Top ten most viewed movies with their movies Name (Ascending or Descending order)</b>
 (code is in src/main/java/com/cdac/movielens/MostViewed package)
