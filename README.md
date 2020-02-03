@@ -128,3 +128,14 @@ hadoop jar eclipse-hadoop/Movie-Lens-Data-Analysis/target/movielens-0.0.1-SNAPSH
 </code>
 
 
+<b>Genres ranked by Average Rating, for each profession and
+age group.</b>
+(code is in src/main/java/com/cdac/movielens/genresRanking package)
+
+1. First job joins the users and rating dataset. And also we are doing a replicate join in the users mapper class to join the profession id to profession mapping data into the output.
+2. Second job joins the previous output with the movies dataset and also split one record per genre so that we can calculate ranking based on genre.
+3. Third job aggregates the data based on the genre and the age group and ranks the data based on genre and age group as per the solution required.
+
+
+
+
