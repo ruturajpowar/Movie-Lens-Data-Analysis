@@ -137,5 +137,21 @@ age group.</b>
 3. Third job aggregates the data based on the genre and the age group and ranks the data based on genre and age group as per the solution required.
 
 
-
-
+#Output of third map-reduce job(Command- hadoop fs -head /movielens/genresRating/output/thirdjob/part-r-00000)
+<code>
+<p>K-12 student::18-35::War::Drama::Action::Thriller::Comedy</p>
+<p>academic/educator::18-35::Western::Crime::Musical::Sci-Fi::Film-Noir</p>
+<p>academic/educator::36-50::Western::Western::Crime::Musical::Crime</p>
+<p>academic/educator::50+::Western::Western::Crime::Musical::Sci-Fi</p>
+<p>artist::18-35::Western::Western::Crime::Documentary::Western</p>
+<p>artist::36-50::Western::Western::Western::Crime::Documentary</p>
+<p>artist::50+::Western::Western::Western::Crime::Documentary</p>
+<p>clerical/admin::18-35::Western::Western::Western::Western::Crime</p>
+<p>clerical/admin::36-50::Western::Western::Western::Western::Crime</p>
+<p>clerical/admin::50+::Western::Western::Western::Western::Western</p>
+<p>college/grad student::18-35::Western::Western::Western::Western::Western</p>
+<p>college/grad student::36-50::Western::Western::Western::Western::Western</p>
+<p>customer service::18-35::Western::Western::Western::Western::Western</p>
+<p>customer service::36-50::Western::Western::Western::Western::Western</p>
+<p>doctor/health care::18-35::Western::Western::Western::Western::Wester</p>
+ </code>
